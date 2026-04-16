@@ -1,8 +1,13 @@
+<img width="2048" height="533" alt="hakuto-light" src="https://github.com/user-attachments/assets/01aaaf47-2639-4f22-81aa-a4168126ef9f" />
+
 # Hakuto
 
-An open-source static website builder powered by Claude Code. Clone it, describe what you want, and ship a production-ready site in minutes.
+An open-source [static website builder](https://hakuto.dev/) powered by Claude Code. Clone it, describe what you want, and ship a production-ready site in minutes.
 
 Built with Astro, Tailwind CSS v4, and shadcn/ui. Deployed to Cloudflare CDN.
+
+Documentation and more on https://hakuto.dev/
+
 
 ## Quick Start
 
@@ -59,16 +64,6 @@ bun run build     # Production build
 bun run check     # TypeScript checks
 bun run lint      # Lint with Biome
 bun run format    # Format with Biome
-```
-
-## Custom Domain
-
-Configure your domain in `wrangler.toml`:
-
-```toml
-[[routes]]
-pattern = "yourdomain.com"
-custom_domain = true
 ```
 
 ## Built-in Skills
