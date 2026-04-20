@@ -1,9 +1,18 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import LegalContent from "@/components/LegalContent.astro";
+import type { WebPage } from "schema-dts";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Politika zasebnosti",
+  description: "Politika zasebnosti storitve Konverter.si.",
+  inLanguage: "sl",
+} satisfies WebPage;
 ---
 
-<Layout title="Politika zasebnosti" description="Politika zasebnosti storitve Konverter.si – kako zbiramo, uporabljamo in varujemo vaše podatke.">
+<Layout title="Politika zasebnosti" description="Politika zasebnosti storitve Konverter.si. Pojasnjujemo, kako zbiramo, uporabljamo in varujemo vaše podatke. Storitev je namenjena izključno pravnim osebam." schema={schema}>
   <LegalContent title="Politika zasebnosti">
     <p><strong>Veljavno od:</strong> 7.10.2025</p>
     <p><strong>Upravljavec podatkov:</strong> Niteo SI d.o.o., Trg komandanta Staneta 8, 1000 Ljubljana, Slovenija</p>

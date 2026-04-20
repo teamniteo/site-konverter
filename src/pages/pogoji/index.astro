@@ -1,9 +1,18 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import LegalContent from "@/components/LegalContent.astro";
+import type { WebPage } from "schema-dts";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Pogoji uporabe",
+  description: "Pogoji uporabe storitve Konverter.si.",
+  inLanguage: "sl",
+} satisfies WebPage;
 ---
 
-<Layout title="Pogoji uporabe" description="Pogoji uporabe storitve Konverter.si za pretvarjanje PDF računov v XML.">
+<Layout title="Pogoji uporabe" description="Pogoji uporabe storitve Konverter.si. Preberite naše pogoje glede plačil, dovoljene uporabe, intelektualne lastnine in prekinitve storitve." schema={schema}>
   <LegalContent title="Pogoji uporabe">
     <p><strong>Veljavno od:</strong> 7.10.2025</p>
     <p><strong>Ponudnik storitve:</strong> Niteo SI d.o.o., Trg komandanta Staneta 8, 1000 Ljubljana, Slovenija</p>

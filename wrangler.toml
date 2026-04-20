@@ -1,4 +1,4 @@
-name = 'hakuto-site-'
+name = 'site-konverter'
 main="worker/index.js"
 compatibility_date = "2025-12-30"
 compatibility_flags = [ "nodejs_compat" ]
@@ -14,7 +14,6 @@ directory = "./dist"
 not_found_handling = "404-page"
 run_worker_first = ["/~*"]
 
-# Routes are template placeholders. Uncomment and set your domain when ready.
-# [[routes]]
-# pattern = "example.com"
-# custom_domain = true
+[[routes]]
+pattern = "konverter.si"
+custom_domain = true

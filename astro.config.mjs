@@ -13,7 +13,7 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "http://localhost:4321",
+  site: "https://konverter.si",
   output: "static",
   integrations: [
       react(),
