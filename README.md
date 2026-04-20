@@ -1,89 +1,98 @@
-<img width="1200" height="630" alt="Image" src="https://github.com/user-attachments/assets/b3257a27-d252-44cd-a620-e3ce10fe9b15" />
+# Welcome to your Hakuto Website
 
-# Hakuto
+This is the Hakuto marketing/docs website template. It’s built with Astro and uses shadcn/ui via React islands. The site is bundled to `dist/` and deployed to Cloudflare Workers.
 
-An open-source [static website builder](https://hakuto.dev/) powered by Claude Code. Clone it, describe what you want, and ship a production-ready site in minutes.
+## Project info
 
-Built with Astro, Tailwind CSS v4, and shadcn/ui. Deployed to Cloudflare CDN.
+**Repo**: <YOUR_REPO_URL>
 
-Documentation and more on https://hakuto.dev/. Also an [announcement post](https://hakuto.dev/blog/how-we-killed-our-new-ai-product/). 
+**Preview/Prod URL**: <YOUR_SITE_URL>
 
-Live example how a Hakuto repo looks like for a real website: https://github.com/teamniteo/site-hakuto
+Template note: Placeholders like `<YOUR_…>` are intentional. Replace them when you initialize a real site.
 
-Two more websites we built with it: https://trialtrack.net/ & https://vendorvigilance.net/
+Note: Cloudflare Worker/project name uses the placeholder prefix `hakuto-site-`. Append an identifier per site (e.g., `hakuto-site-landing`).
 
+## How can I edit this code?
 
+**Use your preferred IDE**
 
-## Quick Start
+If you want to work locally using your own editor, clone this repo and push changes.
 
 ```sh
-git clone https://github.com/teamniteo/hakuto.git
-cd hakuto
+# Step 1: Clone the repository
+git clone <YOUR_GIT_URL>
+
+# Step 2: Navigate to the project directory
+cd <YOUR_PROJECT_NAME>
+
+# Step 3: Install dependencies
 bun install
+
+# Step 4: Start the development server (auto-reload + instant preview)
 bun run dev
 ```
 
-Open [localhost:4321](http://localhost:4321) to see the site.
+Alternative (Node/npm):
 
-## How It Works
+```sh
+npm install
+npm run dev
+```
 
-Hakuto is a website template designed to be edited by Claude Code. The `CLAUDE.md` file contains a full agent specification — design rules, component patterns, and a step-by-step workflow — so Claude can build and modify pages with consistent, high-quality output.
+**Edit a file directly in GitHub**
 
-1. **Clone the template** — start from a working Astro site with shadcn/ui components pre-installed
-2. **Describe your site** — tell Claude Code what you want (landing page, docs site, blog, etc.)
-3. **Ship it** — deploy to Cloudflare Workers with `wrangler deploy`
+- Navigate to the desired file(s)
+- Click the "Edit" button (pencil icon)
+- Make your changes and commit
 
-## Stack
+**Use GitHub Codespaces**
 
-| Layer | Technology |
-|-------|-----------|
-| Framework | [Astro](https://astro.build) 6.x |
-| Styling | [Tailwind CSS](https://tailwindcss.com) v4 |
-| Components | [shadcn/ui](https://ui.shadcn.com) (48 components) |
-| Hosting | [Cloudflare Workers](https://workers.cloudflare.com) |
-| Runtime | [Bun](https://bun.sh) |
+- Open your repository
+- Click `Code` → `Codespaces`
+- Create a new Codespace to edit in the browser
+- Commit and push changes when done
 
-## Project Structure
+## What technologies are used for this project?
+
+This project is built with:
+
+- Astro 5.x
+- TypeScript
+- React (islands)
+- shadcn/ui
+- Tailwind CSS
+- Biome
+- Bun
+
+## Project structure
 
 ```
 src/
-├── assets/          # Images, favicon source
-├── components/
-│   ├── ui/          # shadcn/ui React components
-│   └── *.astro      # Astro page sections
-├── layouts/         # Base layout with SEO, fonts, schema
-├── pages/           # File-based routing
-└── index.css        # Theme tokens (Tailwind v4 @theme)
+├─ components/
+│  ├─ ui/            # shadcn/ui React components
+│  └─ *.astro        # Astro components
+├─ layouts/          # Astro layouts
+├─ pages/            # Routes
+└─ index.css         # Global styles
 
-CLAUDE.md            # Agent specification for Claude Code
-AGENTS.md            # Auto-generated page index
-site-specification.md # Design decisions & style guide
-worker/              # Cloudflare Worker entry
+public/              # Static assets
+worker/              # Worker entry (serves dist)
 ```
 
-## Available Scripts
+## Can I connect a custom domain?
 
-```sh
-bun run dev       # Start dev server
-bun run build     # Production build
-bun run check     # TypeScript checks
-bun run lint      # Lint with Biome
-bun run format    # Format with Biome
+Yes. Configure routes/domains in `wrangler.toml` and Cloudflare.
+
+Example:
+
+```toml
+name = "hakuto-site-landing"
+
+[assets]
+directory = "./dist"
+
+[[routes]]
+pattern = "example.com"
+custom_domain = true
 ```
 
-## Built-in Skills
-
-The Claude Code agent has access to specialized skills for common tasks:
-
-- **website-builder** — Core page creation workflow
-- **brand-designer** — Generate custom color palettes
-- **professional-copywriter** — Conversion-optimized copy
-- **section-form** — Contact forms and signups
-- **section-blog** — Multi-page blog system
-- **section-docs** — Documentation with sidebar nav
-- **plausible-analytics** — Privacy-friendly analytics
-- **testing-seo** — SEO validation
-
-## License
-
-MIT
