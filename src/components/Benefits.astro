@@ -1,0 +1,46 @@
+---
+import { Clock, Sparkles, ShieldCheck } from "lucide-react";
+---
+
+<section class="py-16 md:py-20 bg-background">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy">Zakaj Konverter.si</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Benefit 1 -->
+      <div class="rounded-2xl border border-border bg-card p-8 shadow-soft hover:shadow-medium transition-shadow">
+        <div class="w-12 h-12 rounded-xl bg-brand-cyan/20 flex items-center justify-center mb-5">
+          <Clock className="w-6 h-6 text-brand-navy" />
+        </div>
+        <h3 class="text-2xl font-semibold text-foreground mb-3">Prihrani ure</h3>
+        <p class="text-lg text-muted-foreground leading-relaxed">
+          Obdelaj več računov naenkrat, namesto da jih vnašaš enega po enega.
+        </p>
+      </div>
+
+      <!-- Benefit 2 -->
+      <div class="rounded-2xl border border-border bg-card p-8 shadow-soft hover:shadow-medium transition-shadow">
+        <div class="w-12 h-12 rounded-xl bg-brand-cyan/20 flex items-center justify-center mb-5">
+          <Sparkles className="w-6 h-6 text-brand-navy" />
+        </div>
+        <h3 class="text-2xl font-semibold text-foreground mb-3">Enostavna uporaba</h3>
+        <p class="text-lg text-muted-foreground leading-relaxed">
+          Brez kompleksnih nastavitev. Naloži PDF-je in Konverter poskrbi za ostalo.
+        </p>
+      </div>
+
+      <!-- Benefit 3 -->
+      <div class="rounded-2xl border border-border bg-card p-8 shadow-soft hover:shadow-medium transition-shadow">
+        <div class="w-12 h-12 rounded-xl bg-brand-cyan/20 flex items-center justify-center mb-5">
+          <ShieldCheck className="w-6 h-6 text-brand-navy" />
+        </div>
+        <h3 class="text-2xl font-semibold text-foreground mb-3">Točni podatki</h3>
+        <p class="text-lg text-muted-foreground leading-relaxed">
+          Več kot 99% računov se pretvori brez napak.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

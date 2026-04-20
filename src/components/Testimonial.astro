@@ -1,0 +1,37 @@
+---
+import mojcaImage from "@/assets/mojca.avif";
+---
+
+<section class="py-16 md:py-20 bg-background">
+  <div class="mx-auto max-w-4xl px-4">
+    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+      <!-- Photo -->
+      <div class="flex-shrink-0">
+        <img
+          src={mojcaImage.src}
+          alt="Mojca Vincek"
+          width={mojcaImage.width}
+          height={mojcaImage.height}
+          class="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover shadow-medium"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Quote -->
+      <div class="space-y-4 text-center md:text-left">
+        <svg class="w-8 h-8 text-brand-cyan mx-auto md:mx-0" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+        </svg>
+
+        <blockquote class="text-xl md:text-2xl leading-relaxed text-foreground">
+          &ldquo;Konverter.si nam vsak teden prihrani ogromno časa. Enostavno naložimo po 50 računov naenkrat in vsi se prikažejo v Minimaxu, brez da bi morali karkoli pretipkavati.&rdquo;
+        </blockquote>
+
+        <div>
+          <p class="text-lg font-semibold text-foreground">Mojca Vincek</p>
+          <p class="text-base text-muted-foreground">Kleos</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

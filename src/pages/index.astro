@@ -1,35 +1,42 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { Button } from "@/components/ui/button";
-import { Picture } from "astro:assets";
-import hakutoLogo from "@/assets/hakuto-logo.png";
+import Hero from "@/components/Hero.astro";
+import Testimonial from "@/components/Testimonial.astro";
+import Steps from "@/components/Steps.astro";
+import Benefits from "@/components/Benefits.astro";
+import Pricing from "@/components/Pricing.astro";
+import CtaBanner from "@/components/CtaBanner.astro";
+import type { WebSite, Organization } from "schema-dts";
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Konverter.si",
+  url: Astro.url.origin,
+  description: "Pretvorite PDF račune v XML za Minimax. 99%+ točnost podatkov.",
+} satisfies WebSite;
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Niteo SI d.o.o.",
+  url: Astro.url.origin,
+  email: "podpora@konverter.si",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Trg komandanta Staneta 8",
+    addressLocality: "Ljubljana",
+    postalCode: "1000",
+    addressCountry: "SI",
+  },
+} satisfies Organization;
 ---
 
-<Layout description="Astro + shadcn/ui website template for Hakuto.">
-  <section class="mx-auto max-w-3xl px-4 py-16 text-center">
-    <div class="mx-auto mb-8 w-80">
-      <Picture
-        src={hakutoLogo}
-        alt="Hakuto Landing Page Builder"
-        formats={['avif', 'webp']}
-        widths={[320, 640, 960]}
-        loading="eager"
-        class="h-auto w-full"
-      />
-    </div>
-    <h1 class="text-4xl font-bold tracking-tight">Build with Astro + shadcn/ui</h1>
-    <p class="mt-4 text-muted-foreground">
-      This is a template for Hakuto sites. Edit content in <code>src/pages</code> and
-      components in <code>src/components</code>. See README for setup and deploy.
-    </p>
-    <div class="mt-8 flex items-center justify-center gap-3">
-      <Button size="lg">Example Button</Button>
-      <a
-        href="https://astro.build"
-        target="_blank"
-        rel="noreferrer"
-        class="inline-flex h-11 items-center rounded-md border px-5 text-sm font-medium hover:bg-accent hover:text-accent-foreground"
-      >Astro Docs</a>
-    </div>
-  </section>
+<Layout schema={[websiteSchema, orgSchema]}>
+  <Hero />
+  <Testimonial />
+  <Steps />
+  <Benefits />
+  <Pricing />
+  <CtaBanner />
 </Layout>

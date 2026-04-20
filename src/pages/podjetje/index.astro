@@ -1,0 +1,40 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import LegalContent from "@/components/LegalContent.astro";
+import type { Organization } from "schema-dts";
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Niteo SI d.o.o.",
+  url: Astro.url.origin,
+  email: "podpora@konverter.si",
+  vatID: "SI24620661",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Trg komandanta Staneta 8",
+    addressLocality: "Ljubljana",
+    postalCode: "1000",
+    addressCountry: "SI",
+  },
+} satisfies Organization;
+---
+
+<Layout title="O podjetju" description="Niteo SI d.o.o. – podatki o podjetju za storitev Konverter.si." schema={orgSchema}>
+  <LegalContent title="O podjetju">
+    <p><strong>Niteo SI d.o.o.</strong></p>
+
+    <p>
+      Trg komandanta Staneta 8<br />
+      1000 Ljubljana<br />
+      Slovenija
+    </p>
+
+    <ul>
+      <li><strong>ID za DDV:</strong> SI24620661</li>
+      <li><strong>Matična številka:</strong> 2294141000</li>
+      <li><strong>Zastopniki:</strong> Dejan Murko, Nejc Zupan</li>
+      <li><strong>Kontakt:</strong> <a href="mailto:podpora@konverter.si">podpora@konverter.si</a></li>
+    </ul>
+  </LegalContent>
+</Layout>

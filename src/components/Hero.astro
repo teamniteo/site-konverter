@@ -1,0 +1,48 @@
+---
+import heroImage from "@/assets/hero.avif";
+---
+
+<section class="relative overflow-hidden bg-gradient-hero">
+  <div class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-12 items-center">
+      <!-- Text -->
+      <div class="space-y-6" style="animation: fade-in-up 0.6s ease-out both;">
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-brand-navy leading-tight">
+          Konec pretipkavanja prejetih računov: od PDF-ja v Minimax v manj kot minuti
+        </h1>
+
+        <p class="text-xl text-muted-foreground leading-relaxed max-w-lg">
+          Konverter pretvori slike in PDF-je računov v XML in jih pošlje neposredno v Minimaxov Nabiralnik. Zagotavljamo <strong class="text-foreground">99%+ točnost podatkov</strong>.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-2">
+          <a
+            href="https://app.konverter.si/register"
+            class="inline-flex items-center justify-center rounded-lg bg-brand-red px-8 py-3.5 text-lg font-semibold text-white hover:opacity-90 transition-opacity shadow-medium"
+          >
+            Preizkusi 10 brezplačnih pretvorb
+          </a>
+          <span class="text-base text-muted-foreground">
+            Od <strong class="text-foreground">15 €</strong>/mesec
+          </span>
+        </div>
+      </div>
+
+      <!-- Image — overflows right edge -->
+      <div class="relative lg:-mr-[calc(50vw-50%)] lg:pr-0" style="animation: fade-in-up 0.6s ease-out 0.2s both;">
+        <div class="relative rounded-l-2xl overflow-hidden shadow-strong">
+          <img
+            src={heroImage.src}
+            alt="Pretvorba računov iz PDF v digitalno obliko"
+            width={heroImage.width}
+            height={heroImage.height}
+            loading="eager"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+        <!-- Decorative elements -->
+        <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-brand-cyan/20 rounded-2xl -z-10"></div>
+      </div>
+    </div>
+  </div>
+</section>

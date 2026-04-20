@@ -1,0 +1,131 @@
+---
+import step1Image from "@/assets/step1.avif";
+import step2Image from "@/assets/step2.avif";
+import step3Image from "@/assets/step3.avif";
+---
+
+<section id="koraki" class="py-16 md:py-20 bg-muted/50">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy">3 enostavni koraki</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Step 1 -->
+      <div class="relative text-center space-y-4 p-6">
+        <div class="mx-auto w-14 h-14 rounded-2xl bg-brand-cyan/20 flex items-center justify-center">
+          <span class="text-2xl font-bold text-brand-navy">1</span>
+        </div>
+        <h3 class="text-xl font-semibold text-foreground">Nastavi strankin Nabiralnik v Minimaxu</h3>
+        <button class="step-lightbox-trigger rounded-xl overflow-hidden shadow-soft cursor-zoom-in block w-full" type="button">
+          <img
+            src={step1Image.src}
+            alt="Nastavitev Nabiralnika v Minimaxu"
+            width={step1Image.width}
+            height={step1Image.height}
+            loading="lazy"
+            class="w-full h-auto object-cover"
+          />
+        </button>
+        <div class="hidden md:block absolute top-10 left-[calc(50%+3rem)] w-[calc(100%-6rem)] h-px bg-brand-cyan/30"></div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="relative text-center space-y-4 p-6">
+        <div class="mx-auto w-14 h-14 rounded-2xl bg-brand-cyan/20 flex items-center justify-center">
+          <span class="text-2xl font-bold text-brand-navy">2</span>
+        </div>
+        <h3 class="text-xl font-semibold text-foreground">Dodaj stranko v Konverter.si</h3>
+        <button class="step-lightbox-trigger rounded-xl overflow-hidden shadow-soft cursor-zoom-in block w-full" type="button">
+          <img
+            src={step2Image.src}
+            alt="Dodajanje stranke v Konverter.si"
+            width={step2Image.width}
+            height={step2Image.height}
+            loading="lazy"
+            class="w-full h-auto object-cover"
+          />
+        </button>
+        <div class="hidden md:block absolute top-10 left-[calc(50%+3rem)] w-[calc(100%-6rem)] h-px bg-brand-cyan/30"></div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="text-center space-y-4 p-6">
+        <div class="mx-auto w-14 h-14 rounded-2xl bg-brand-cyan/20 flex items-center justify-center">
+          <span class="text-2xl font-bold text-brand-navy">3</span>
+        </div>
+        <h3 class="text-xl font-semibold text-foreground">Naloži do 50 PDF-jev hkrati</h3>
+        <button class="step-lightbox-trigger rounded-xl overflow-hidden shadow-soft cursor-zoom-in block w-full" type="button">
+          <img
+            src={step3Image.src}
+            alt="Nalaganje PDF datotek"
+            width={step3Image.width}
+            height={step3Image.height}
+            loading="lazy"
+            class="w-full h-auto object-cover"
+          />
+        </button>
+      </div>
+    </div>
+
+    <p class="text-center text-lg text-muted-foreground mt-10 max-w-xl mx-auto leading-relaxed">
+      V 1–2 minutah so vsi računi v Nabiralniku. Brez ročnega tipkanja. Brez zapletene namestitve.
+    </p>
+  </div>
+</section>
+
+<!-- Fullscreen lightbox overlay -->
+<div id="step-lightbox" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/80 backdrop-blur-sm cursor-default" role="dialog" aria-modal="true" aria-label="Povečana slika">
+  <button id="step-lightbox-close" type="button" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center text-white" aria-label="Zapri">
+    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+  <img id="step-lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-strong cursor-default" />
+</div>
+
+<script>
+  const lightbox = document.getElementById("step-lightbox");
+  const lightboxImg = document.getElementById("step-lightbox-img") as HTMLImageElement;
+  const closeBtn = document.getElementById("step-lightbox-close");
+
+  document.querySelectorAll(".step-lightbox-trigger").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const img = btn.querySelector("img");
+      if (!img || !lightbox || !lightboxImg) return;
+
+      // Use the largest srcset source or fallback to src
+      const srcset = img.getAttribute("srcset");
+      let fullSrc = img.src;
+      if (srcset) {
+        const sources = srcset.split(",").map((s) => s.trim());
+        const last = sources[sources.length - 1];
+        fullSrc = last.split(" ")[0];
+      }
+
+      lightboxImg.src = fullSrc;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.remove("hidden");
+      lightbox.classList.add("flex");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.add("hidden");
+    lightbox.classList.remove("flex");
+    document.body.style.overflow = "";
+  }
+
+  lightboxImg?.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  lightbox?.addEventListener("click", closeLightbox);
+  closeBtn?.addEventListener("click", closeLightbox);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
+  });
+</script>

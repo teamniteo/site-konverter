@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, fontProviders } from "astro/config";
+import { defineConfig } from "astro/config";
 import { defineConfig as viteConfig } from "vite";
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
@@ -22,9 +22,9 @@ export default defineConfig({
       pagefind(),
       astroGrab(),
       favicons({
-          input: "./src/assets/favicon.png",
-          name: "Site",
-          short_name: "Site Name",
+          input: "./src/assets/icon.svg",
+          name: "Konverter.si",
+          short_name: "Konverter",
       }),
   ],
 
